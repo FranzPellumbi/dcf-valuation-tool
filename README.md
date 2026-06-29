@@ -1,6 +1,6 @@
 📊 DCF Valuation Tool
 A full-stack equity research platform built in Python that replicates institutional-grade valuation workflows. Pulls live financial data, runs discounted cash flow models, generates AI-powered equity research reports, and screens multiple stocks simultaneously — all in a professional dark terminal UI.
-Built from scratch with no prior coding experience as a self-directed finance project.
+
 
 🚀 Features
 Core Valuation
