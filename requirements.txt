@@ -1,0 +1,11 @@
+streamlit
+yfinance
+pandas
+numpy
+plotly
+scipy
+fpdf2
+openpyxl
+groq
+python-dotenv
+matplotlib
