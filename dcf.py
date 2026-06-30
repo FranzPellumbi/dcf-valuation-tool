@@ -1,17 +1,25 @@
 import yfinance as yf
 import pandas as pd
 import numpy as np
-
+import streamlit as st 
 
 # ── 1. Fetch financials ────────────────────────────────────────────────────────
-def get_financials(ticker):
-    stock = yf.Ticker(ticker)
-    income_stmt = stock.financials
-    cash_flow = stock.cashflow
-    balance_sheet = stock.get_balance_sheet()
-    info = stock.info
-    return income_stmt, cash_flow, balance_sheet, info
+import time 
 
+@st.cache_data(ttl=3600)
+def get_financials(ticker):
+    for attempt in range(3):
+        try:
+            stock = yf.Ticker(ticker)
+            income_stmt = stock.financials
+            cash_flow = stock.cashflow
+            balance_sheet = stock.get_balance_sheet()
+            info = stock.info
+            if info:
+                return income_stmt, cash_flow, balance_sheet, info
+        except Exception:
+            time.sleep(2)
+    raise Exception("Yahoo Finance rate limit hit. Please wait a minute and try again.")
 
 # ── 2. Historical FCF (simple method, used for sensitivity/Monte Carlo) ────────
 def calculate_fcf(cash_flow):
