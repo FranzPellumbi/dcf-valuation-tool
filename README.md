@@ -93,8 +93,7 @@ dcf_tool/
 
 ⚙️ Setup & Installation
 1. Clone the repository
-git clone https://github.com/yourusername/dcf-tool.git
-cd dcf-tool
+git clone https://github.com/FranzPellumbi/dcf-valuation-tool.git cd dcf-tool
 
 2. Create and activate a virtual environment
 python -m venv venv
